@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DBPartyMemberDemo</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="party_member_title">Party Members</string>
+    <string name="party_member_name_text">Party Member Name</string>
+    <string name="party_member_health">Health: </string>
+    <string name="party_member_moral">Moral: </string>
+    <string name="new_game_button_text">New Game</string>
+    <string name="load_game_button_text">Load Game</string>
+
+</resources>
