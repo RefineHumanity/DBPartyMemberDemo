@@ -4,12 +4,13 @@ import java.util.List;
 
 public class PartyMembers {
 	
+
 	public int healthMax=15;
 	public int moralMax=8;
 	public int health=5;
 	public int moral=5;
-	public String sex="male";
-	public String name="default";
+	public String sex;
+	public String name;
 	
 	private static final String[] DEFAULT_NAMES_WOMAN = {"Jennifer", "Abigail", "Cindy", "Olivia", "Sally", "Ingela", "Angie", "Sarah", "Josephine", "Calipso", "Jay", "Kate",
 		"Silvia", "Katja", "Nimi", "Kim", "Summer", "Hope", "Ji-eun", "Jackie", "Olive"};
@@ -29,6 +30,15 @@ public class PartyMembers {
 		moral=moralMax;
 		
 		//TODO stub
+	}
+	
+	public PartyMembers(String n, String s) {
+		sex = s;
+		name = n;
+		healthMax = 15 + (int) (Math.random() * 5);
+		moralMax = 8 + (int) (Math.random() * 2);
+		health= healthMax;
+		moral=moralMax;
 	}
 	
 	//On random character create, have a dialog pop up with a random default checkbox for sex, a type field

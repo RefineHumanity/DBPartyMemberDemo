@@ -126,6 +126,7 @@ public class MainActivity extends ListActivity {
 		}
 	}
 	
+	//Load party database on Load Game or delete contents of db on New Game
 	protected void loadPartyDatabase(Boolean isNewGame) {
 		if (isNewGame) {
 			DatabaseHelper dbhelper = new DatabaseHelper(getApplicationContext());
@@ -145,10 +146,14 @@ public class MainActivity extends ListActivity {
 			//Sets PartyMembers attributes
 			while (partyCursor.moveToNext()) {
 				int i = partyCursor.getPosition();
-				PartyMembers partyMember = new PartyMembers();
+				
+				String n = partyCursor.getString(1);
+				String s = partyCursor.getString(2);
+				PartyMembers partyMember = new PartyMembers(n, s);
+				
 				partyMembersList.add(partyMember);
-				partyMembersList.get(i).name = partyCursor.getString(1);
-				partyMembersList.get(i).sex = partyCursor.getString(2);
+				//partyMembersList.get(i).name = partyCursor.getString(1);
+				//partyMembersList.get(i).sex = partyCursor.getString(2);
 				partyMembersList.get(i).health = partyCursor.getInt(3);
 				partyMembersList.get(i).healthMax = partyCursor.getInt(4);
 				partyMembersList.get(i).moral = partyCursor.getInt(5);
@@ -178,10 +183,10 @@ public class MainActivity extends ListActivity {
 			
 			
 			
-			if (partyMembersList.get(position).sex == "male") {
+			if (partyMembersList.get(position).sex.contentEquals("male")) {
 				icon.setImageResource(R.drawable.ic_blaine);
 			}
-			else if ((String)(partyMembersList.get(position).getSex()) == "female") {
+			else if (partyMembersList.get(position).getSex().contentEquals("female")) {
 				icon.setImageResource(R.drawable.ic_cynthia);
 			}
 			else {icon.setImageResource(R.drawable.ic_launcher);}
