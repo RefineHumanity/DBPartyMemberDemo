@@ -36,13 +36,12 @@ public class MainActivity extends ListActivity {
 		
 		Intent i = new Intent(this, NewGame.class);
 		startActivityForResult(i, 1);
-		DatabaseHelper db = new DatabaseHelper(getApplicationContext());
 		
 		//Creating PartyAdapter, setting list adapter
 		PartyAdapter pAdapter = new PartyAdapter();
 		setListAdapter(pAdapter);
 		
-		//new LoadCursorTask().execute();
+
 		
 		//Set up button to add new party member to partyMemberList
 		Button button = (Button) findViewById(R.id.get_party_member);
@@ -201,7 +200,7 @@ public class MainActivity extends ListActivity {
 			TextView moralView = (TextView) row.findViewById(R.id.moral);
 			moralView.setText("Morale: " + partyMembersList.get(position).getMoral());
 			
-			//Setting up action button for adding party memebers to db
+			//Setting up action button for adding party members to db
 			//Probably not right place to have button
 			//Button button = (Button) row.findViewById(R.id.action_button);
 			//button.setText("Add to database: " + partyMembersList.get(position).getName());
